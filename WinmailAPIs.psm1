@@ -41,9 +41,9 @@ Invoke-WebRequest $cbaseur3
 $sessid = Get-sessid -Apikeypass $apikeypass -Apikey $apikey -Apass $pass -Auser $user
 add-MailUser -Apikeypass $apikeypass -Apikey $apikey -Department $department -Fullname $fullname -Name $name
 
-function Check-Users($Apikeypass,$Apikey,$Sessid,$Pageno)
+function List-Users($Apikeypass,$Apikey,$Sessid,$Pageno)
         {
-            $domain = 'zillion-info.com'
+            $domain = 'zillion-info.com' # 操作的邮箱域
             $timestamp = ((Get-Date -UFormat %s -Millisecond 0) - (8*3600))
             $method='user'
             $CheckUsers= @($apikeypass,$apikey,$domain,$method,$pageno,$sessid,$timestamp)
