@@ -21,7 +21,7 @@
     }
 
 #获取管理员Sessid
-function Add-MailUser($Apikeypass,$Apikey,$Department,$Fullname,$Ftpquota,$Mailquota,$Name,$Password) 
+function New-MailUser($Apikeypass,$Apikey,$Department,$Fullname,$Ftpquota,$Mailquota,$Name,$Password,$sessid) 
 {
 $domain='zillion-info.com'
 $ftpquota = '0'  #网盘配额
@@ -37,9 +37,6 @@ $cbaseur3 = 'http://mail.zillion.com/admin/openapi.php?apikey={1}&department={2}
 Invoke-WebRequest $cbaseur3
 }
 #创建用户
-
-$sessid = Get-sessid -Apikeypass $apikeypass -Apikey $apikey -Apass $pass -Auser $user
-add-MailUser -Apikeypass $apikeypass -Apikey $apikey -Department $department -Fullname $fullname -Name $name
 
 function List-Users($Apikeypass,$Apikey,$Sessid,$Pageno)
         {
